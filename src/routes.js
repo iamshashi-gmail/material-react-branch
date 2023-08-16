@@ -38,6 +38,7 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
+import TableCheckBox from "layouts/tablecheckbox";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
@@ -67,6 +68,15 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "tablecheckbox",
+    key: "tablecheckbox",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/tablecheckbox",
+    component: <TableCheckBox />,
+  },
+  /** 
+  {
+    type: "collapse",
     name: "Billing",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
@@ -89,6 +99,7 @@ const routes = [
     route: "/notifications",
     component: <Notifications />,
   },
+  */
   {
     type: "collapse",
     name: "Profile",
