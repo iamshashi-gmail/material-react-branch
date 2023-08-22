@@ -16,17 +16,21 @@ Coded by www.creative-tim.com
 */
 
 // Material Dashboard 2 React components
+import { useState } from "react";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDAvatar from "components/MDAvatar";
 import MDBadge from "components/MDBadge";
-
+import Checkbox from "@mui/material/Checkbox";
 // Images
 import team2 from "assets/images/team-2.jpg";
 import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
+import Check from "./checkbox";
 
 export default function data() {
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [isAllSelected, setIsAllSelected] = useState(false);
   const Author = ({ image, name, email }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
       <MDAvatar src={image} name={name} size="sm" />
@@ -47,18 +51,49 @@ export default function data() {
       <MDTypography variant="caption">{description}</MDTypography>
     </MDBox>
   );
+  /** 
+  const selectAll = () => {
+    setSelectedUsers([]);
+
+    if (!isAllSelected) {
+      users.forEach((user) => {
+        setSelectedUsers((prevSelectedUsers) => [...prevSelectedUsers, user.name]);
+      });
+    }
+    setIsAllSelected(!isAllSelected);
+  };
+  const handleUserSelect = (rows) => {
+    if (selectedUsers.includes(user.name)) {
+      setSelectedUsers((prevSelectedUsers) =>
+        prevSelectedUsers.filter((name) => name !== user.name)
+      );
+    } else {
+      setSelectedUsers((prevSelectedUsers) => [...prevSelectedUsers, user.name]);
+    }
+  };
+
+  const isUserSelected = (rows) => {
+    return selectedUsers.includes(rows.name);
+  };
+
+  const isAllUsersSelected = () => {
+    return selectedUsers.length === users.length;
+  };
+  */
 
   return {
     columns: [
+      { Header: "select", accessor: "select", width: "45%", align: "left" },
       { Header: "author", accessor: "author", width: "45%", align: "left" },
       { Header: "function", accessor: "function", align: "left" },
       { Header: "status", accessor: "status", align: "center" },
       { Header: "employed", accessor: "employed", align: "center" },
       { Header: "action", accessor: "action", align: "center" },
+      { Header: "age", accessor: "age", align: "center" },
     ],
-
     rows: [
       {
+        select: <Check />,
         author: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
         function: <Job title="Manager" description="Organization" />,
         status: (
@@ -76,8 +111,14 @@ export default function data() {
             Edit
           </MDTypography>
         ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
+        ),
       },
       {
+        select: <Check />,
         author: <Author image={team3} name="Alexa Liras" email="alexa@creative-tim.com" />,
         function: <Job title="Programator" description="Developer" />,
         status: (
@@ -95,8 +136,14 @@ export default function data() {
             Edit
           </MDTypography>
         ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
+        ),
       },
       {
+        select: <Check />,
         author: <Author image={team4} name="Laurent Perrier" email="laurent@creative-tim.com" />,
         function: <Job title="Executive" description="Projects" />,
         status: (
@@ -114,8 +161,14 @@ export default function data() {
             Edit
           </MDTypography>
         ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
+        ),
       },
       {
+        select: <Check />,
         author: <Author image={team3} name="Michael Levi" email="michael@creative-tim.com" />,
         function: <Job title="Programator" description="Developer" />,
         status: (
@@ -133,8 +186,14 @@ export default function data() {
             Edit
           </MDTypography>
         ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
+        ),
       },
       {
+        select: <Check />,
         author: <Author image={team3} name="Richard Gran" email="richard@creative-tim.com" />,
         function: <Job title="Manager" description="Executive" />,
         status: (
@@ -152,14 +211,25 @@ export default function data() {
             Edit
           </MDTypography>
         ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
+        ),
       },
       {
+        select: <Check />,
         author: <Author image={team4} name="Miriam Eric" email="miriam@creative-tim.com" />,
         function: <Job title="Programator" description="Developer" />,
         status: (
           <MDBox ml={-1}>
             <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
           </MDBox>
+        ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
+          </MDTypography>
         ),
         employed: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -169,6 +239,11 @@ export default function data() {
         action: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
             Edit
+          </MDTypography>
+        ),
+        age: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            29
           </MDTypography>
         ),
       },
