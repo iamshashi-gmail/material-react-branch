@@ -42,7 +42,7 @@ export default function data() {
       </MDBox>
     </MDBox>
   );
-
+  const Ch = Check;
   const Job = ({ title, description }) => (
     <MDBox lineHeight={1} textAlign="left">
       <MDTypography display="block" variant="caption" color="text" fontWeight="medium">
@@ -83,7 +83,8 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "select", accessor: "select", width: "45%", align: "left" },
+      // Ch,
+      { Ch: "Checkbox", accessor: "select", width: "45%", align: "left" },
       { Header: "author", accessor: "author", width: "45%", align: "left" },
       { Header: "function", accessor: "function", align: "left" },
       { Header: "status", accessor: "status", align: "center" },
